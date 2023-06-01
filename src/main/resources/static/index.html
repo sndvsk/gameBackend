@@ -17,9 +17,7 @@
     <script src="script.js"></script>
 
 </head>
-
     <body>
-
         <div id="main-content" class="container">
 
             <div class="row mb-4">
@@ -36,33 +34,29 @@
                 </div>
             </div>
 
-
-
             <div class="row mb-4">
                 <div class="col-md-6">
                     <form class="form" id="game-form" novalidate>
 
                         <div class="form-group mb-2">
                             <label for="bet">Enter your bet:</label>
-                            <input type="number" id="bet" class="form-control" placeholder="Your bet here..." required min="1" max="100" step="0.01" />
+                            <input type="number" id="bet" class="form-control" placeholder="Your bet here..." required min="1" max="2147483647" step="0.01" />
                             <div id="bet-error-empty" class="invalid-feedback">Bet should not be empty</div>
-                            <div id="bet-error-range" class="invalid-feedback">Bet should be a number between 1 and 100</div>
+                            <div id="bet-error-range" class="invalid-feedback">Bet should be a number between 1 and 2147483647</div>
                             <div id="bet-error-invalid" class="invalid-feedback">Bet should be a positive number</div>
                         </div>
 
                         <div class="form-group mb-2">
                             <label for="number">Enter a number:</label>
-                            <input type="number" id="number" class="form-control" placeholder="Your number here..." required min="1" max="100" />
+                            <input type="number" id="number" class="form-control" placeholder="Your number here..." required min="1" max="99" />
                             <div id="number-error-empty" class="invalid-feedback">Number should not be empty</div>
-                            <div id="number-error-range" class="invalid-feedback">Number should be a number between 1 and 100</div>
+                            <div id="number-error-range" class="invalid-feedback">Number should be a number between 1 and 99</div>
                             <div id="number-error-invalid" class="invalid-feedback">Number should be a positive number</div>
                         </div>
 
                     </form>
                 </div>
             </div>
-
-
 
             <div class="row mb-4">
                 <div class="col-md-6">
@@ -77,7 +71,5 @@
             </div>
 
         </div>
-
     </body>
-
 </html>

@@ -1,56 +1,27 @@
 package com.example.gameBackend.domain;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.Positive;
-
-//@AllArgsConstructor
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class Player {
 
     @Positive
     @Min(1)
-    @Max(100)
+    @Max(Integer.MAX_VALUE)
     private float bet;
 
     @Positive
     @Min(1)
-    @Max(100)
+    @Max(99)
     private int number;
-
-    public Player(float bet, int number) {
-        this.bet = bet;
-        this.number = number;
-    }
-
-/*    @JsonCreator
-    public Player(@JsonProperty("bet") float bet, @JsonProperty("number") int number) {
-        this.bet = bet;
-        this.number = number;
-    }*/
-
-    public Player() {
-    }
-
-    // Getters and Setters
-
-    public float getBet() {
-        return bet;
-    }
-
-    public void setBet(float bet) {
-        this.bet = bet;
-    }
-
-    public int getNumber() {
-        return number;
-    }
-
-    public void setNumber(int number) {
-        this.number = number;
-    }
 
 }

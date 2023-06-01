@@ -27,7 +27,7 @@ public class GameServiceTest {
     public MockitoRule rule = MockitoJUnit.rule();
 
     @Test
-    public void testPlayGame() {
+    public void testPlayGame_validInputs_1() {
         when(player.getNumber()).thenReturn(50);
         when(player.getBet()).thenReturn(40.5f);
 
@@ -41,4 +41,21 @@ public class GameServiceTest {
             assertEquals(0, response.getWinnings(), 0.01);
         }
     }
+
+    @Test
+    public void testPlayGame_validInputs_2() {
+        when(player.getNumber()).thenReturn(99);
+        when(player.getBet()).thenReturn(99f);
+
+        ResponseMessage response = gameService.playGame(player);
+
+        if (response.isWon()) {
+            assertTrue(response.isWon());
+            assertEquals(9801, response.getWinnings(), 0.01);
+        } else {
+            assertFalse(response.isWon());
+            assertEquals(0, response.getWinnings(), 0.01);
+        }
+    }
+
 }

@@ -3,12 +3,11 @@ package com.example.gameBackend.controller;
 import com.example.gameBackend.domain.Player;
 import com.example.gameBackend.dto.ResponseMessage;
 import com.example.gameBackend.service.GameService;
+import jakarta.validation.Valid;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
-
-import javax.validation.Valid;
 
 @Controller
 @Validated

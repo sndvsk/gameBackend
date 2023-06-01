@@ -31,8 +31,17 @@ function disconnect() {
 function subscribeToWinnings() {
     stompClient.subscribe('/topic/winnings', function (winnings) {
         let response = JSON.parse(winnings.body);
+        let winningsDisplay;
         if (response.won) {
-            document.getElementById('message').innerHTML = 'You won: ' + response.winnings.toFixed(2);
+            // Check if winnings are an integer
+            if (Number.isInteger(response.winnings)) {
+                // If winnings are an integer, display as is
+                winningsDisplay = response.winnings;
+            } else {
+                // If winnings are not an integer, display with 2 decimal places
+                winningsDisplay = response.winnings.toFixed(2);
+            }
+            document.getElementById('message').innerHTML = `You won: ${winningsDisplay}`;
         } else {
             document.getElementById('message').innerHTML = 'Sorry, you lost.';
         }
@@ -42,8 +51,10 @@ function subscribeToWinnings() {
 function playGame() {
     let playData = validateInputs();
 
+    let fixedBet = playData.bet.toFixed(2);
+
     if (playData.valid) {
-        let player = { 'bet': playData.bet, 'number': playData.number };
+        let player = { 'bet': fixedBet, 'number': playData.number };
         stompClient.send("/app/play", {}, JSON.stringify(player));
     }
 }
@@ -61,7 +72,9 @@ function validateInput(input, errorEmpty, errorInvalid, errorRange) {
         errorInvalid.style.display = 'block';
         errorRange.style.display = 'none';
         return false;
-    } else if (input.value < 1 || input.value > 100) {
+    } else if (
+        (input.id === 'bet' && (input.value < 1 || input.value > 2147483647)) ||
+        (input.id === 'number' && (input.value < 1 || input.value > 99))) {
         input.classList.add('is-invalid');
         errorEmpty.style.display = 'none';
         errorInvalid.style.display = 'none';
