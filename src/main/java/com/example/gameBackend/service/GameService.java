@@ -24,14 +24,14 @@ public class GameService {
 
     public ResponseMessage playGame(Player player) {
         int clientNumber = player.getNumber();
-        double bet = player.getBet();
+        float bet = player.getBet();
 
         validateInputs(clientNumber, bet);
 
         int serverNumber = getRandomNumber();
-        float winnings = calculateWinnings(player.getNumber(), serverNumber, player.getBet());
+        float winnings = calculateWinnings(clientNumber, serverNumber, bet);
 
-        return new ResponseMessage(winnings > bet, bet, clientNumber, winnings);
+        return new ResponseMessage(winnings > 0, bet, clientNumber, winnings);
     }
 
     public int getRandomNumber() {

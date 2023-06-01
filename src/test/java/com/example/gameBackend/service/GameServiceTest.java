@@ -33,7 +33,7 @@ public class GameServiceTest {
 
         ResponseMessage response = gameService.playGame(player);
 
-        if (response.isWon()) {
+        if (response.isWon()) { // if because the outcome of the game is decided by random
             assertTrue(response.isWon());
             assertEquals(80.19, response.getWinnings(), 0.01);
         } else {
@@ -49,7 +49,7 @@ public class GameServiceTest {
 
         ResponseMessage response = gameService.playGame(player);
 
-        if (response.isWon()) {
+        if (response.isWon()) { // if because the outcome of the game is decided by random
             assertTrue(response.isWon());
             assertEquals(9801, response.getWinnings(), 0.01);
         } else {

@@ -78,8 +78,8 @@ public class GameControllerTestIT {
 
         //then
         assertNotNull(gameResult);
-        if (gameResult.isWon()) {
-            assertTrue(gameResult.isWon()); // same as one the row up but anyway
+        if (gameResult.isWon()) { // if because the outcome of the game is decided by random
+            assertTrue(gameResult.isWon());
             assertEquals(80.19, gameResult.getWinnings(), 0.01);
         } else {
             assertFalse(gameResult.isWon());
