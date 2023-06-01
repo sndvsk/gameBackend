@@ -1,0 +1,12 @@
+body {
+    font-family: Arial, sans-serif;
+}
+#message {
+    margin-top: 1em;
+    color: green;
+}
+
+.mb-4 {
+    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
+}

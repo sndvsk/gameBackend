@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Game Client</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/webjars/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <!-- jQuery -->
+    <script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
+    <!-- SockJS -->
+    <script src="/webjars/sockjs-client/1.5.1/sockjs.min.js"></script>
+    <!-- STOMP -->
+    <script src="/webjars/stomp-websocket/2.3.3/stomp.min.js"></script>
+
+    <script src="script.js"></script>
+
+</head>
+
+    <body>
+
+        <div id="main-content" class="container">
+
+            <div class="row mb-4">
+                <div class="col-mb-2">
+                    <div class="form-group mb-2">
+                        <div class="col text-left">
+                            <label for="connect-disconnect" class="col-form-label">WebSocket connection:</label>
+                        </div>
+                        <div class="col" id="connect-disconnect">
+                            <button id="connect" class="btn btn-primary mr-2" type="button">Connect</button>
+                            <button id="disconnect" class="btn btn-primary mr-2" type="button" disabled="disabled">Disconnect</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <form class="form" id="game-form" novalidate>
+
+                        <div class="form-group mb-2">
+                            <label for="bet">Enter your bet:</label>
+                            <input type="number" id="bet" class="form-control" placeholder="Your bet here..." required min="1" max="100" step="0.01" />
+                            <div id="bet-error-empty" class="invalid-feedback">Bet should not be empty</div>
+                            <div id="bet-error-range" class="invalid-feedback">Bet should be a number between 1 and 100</div>
+                            <div id="bet-error-invalid" class="invalid-feedback">Bet should be a positive number</div>
+                        </div>
+
+                        <div class="form-group mb-2">
+                            <label for="number">Enter a number:</label>
+                            <input type="number" id="number" class="form-control" placeholder="Your number here..." required min="1" max="100" />
+                            <div id="number-error-empty" class="invalid-feedback">Number should not be empty</div>
+                            <div id="number-error-range" class="invalid-feedback">Number should be a number between 1 and 100</div>
+                            <div id="number-error-invalid" class="invalid-feedback">Number should be a positive number</div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+
+
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <button id="play" class="btn btn-primary" type="button">Play</button>
+                </div>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col-md-12">
+                    <p id="message"></p>
+                </div>
+            </div>
+
+        </div>
+
+    </body>
+
+</html>
