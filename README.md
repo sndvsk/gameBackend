@@ -17,7 +17,7 @@ as an example, if player selected the number 50 and bet 40.5, the win would be 8
 I do not know whether it is my misunderstanding, or the task is incorrect. 
 
 Using number 100 causes the division by zero which results in Infinity value of the winnings. \
-Because of this I made adjustments to the task. \
+Because of this I made adjustments to the task.
 
 * Player can pick number from 1 to 99 included.
 * There is nothing mentioning tie in the task (when player number is the same as server number), so I skipped implementation of this.
